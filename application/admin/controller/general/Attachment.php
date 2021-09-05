@@ -35,6 +35,7 @@ class Attachment extends Backend
      */
     public function index()
     {
+
         //设置过滤方法
         $this->request->filter(['strip_tags', 'trim']);
         if ($this->request->isAjax()) {
@@ -75,7 +76,6 @@ class Attachment extends Backend
             }
             unset($v);
             $result = array("total" => $list->total(), "rows" => $list->items());
-
             return json($result);
         }
         return $this->view->fetch();

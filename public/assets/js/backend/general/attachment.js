@@ -7,7 +7,7 @@ define(['jquery', 'bootstrap', 'backend', 'form', 'table'], function ($, undefin
                 extend: {
                     index_url: 'general/attachment/index',
                     add_url: 'general/attachment/add',
-                    edit_url: 'general/attachment/edit',
+                    // edit_url: 'general/attachment/edit',
                     del_url: 'general/attachment/del',
                     multi_url: 'general/attachment/multi',
                     table: 'attachment'
@@ -24,7 +24,7 @@ define(['jquery', 'bootstrap', 'backend', 'form', 'table'], function ($, undefin
                     [
                         {field: 'state', checkbox: true},
                         {field: 'id', title: __('Id')},
-                        {field: 'category', title: __('Category'), operate: 'in', formatter: Table.api.formatter.label, searchList: Config.categoryList},
+                        // {field: 'category', title: __('Category'), operate: 'in', formatter: Table.api.formatter.label, searchList: Config.categoryList},
                         {field: 'admin_id', title: __('Admin_id'), visible: false, addClass: "selectpage", extend: "data-source='auth/admin/index' data-field='nickname'"},
                         {field: 'user_id', title: __('User_id'), visible: false, addClass: "selectpage", extend: "data-source='user/user/index' data-field='nickname'"},
                         {field: 'preview', title: __('Preview'), formatter: Controller.api.formatter.thumb, operate: false},

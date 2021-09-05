@@ -408,16 +408,17 @@ class Auth extends \fast\Auth
         $selected = $referer = [];
         $refererUrl = Session::get('referer');
         // 必须将结果集转换为数组
+
         $ruleList = collection(\app\admin\model\AuthRule::where('status', 'normal')
             ->where('ismenu', 1)
             ->order('weigh', 'desc')
-            ->cache("__menu__")
             ->select())->toArray();
         $indexRuleList = \app\admin\model\AuthRule::where('status', 'normal')
             ->where('ismenu', 0)
             ->where('name', 'like', '%/index')
             ->column('name,pid');
         $pidArr = array_unique(array_filter(array_column($ruleList, 'pid')));
+
         foreach ($ruleList as $k => &$v) {
             if (!in_array($v['name'], $userRule)) {
                 unset($ruleList[$k]);
@@ -451,6 +452,7 @@ class Auth extends \fast\Auth
 
         $select_id = $selected ? $selected['id'] : 0;
         $menu = $nav = '';
+
         if (Config::get('fastadmin.multiplenav')) {
             $topList = [];
             foreach ($ruleList as $index => $item) {
